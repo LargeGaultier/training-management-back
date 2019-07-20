@@ -1,0 +1,8 @@
+﻿################################################################################
+# Ce fichier .gitignore a été automatiquement créé par Microsoft(R) Visual Studio.
+################################################################################
+
+/TrainingManagement.FunctionApp/.vs/TrainingManagement.FunctionApp/v16
+/.vs
+/TrainingManagement.RestApi/Properties/PublishProfiles
+/TrainingManagement.RestApi/Properties/PublishProfiles
