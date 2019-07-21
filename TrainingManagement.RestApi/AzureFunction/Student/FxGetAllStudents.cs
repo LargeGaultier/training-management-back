@@ -7,6 +7,8 @@ using Microsoft.Extensions.Logging;
 using TrainingManagement.RestApi.Persistence;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Aliencube.AzureFunctions.Extensions.OpenApi.Attributes;
+using System.Net;
 
 namespace TrainingManagement.RestApi.AzureFunction.Student
 {
@@ -19,15 +21,14 @@ namespace TrainingManagement.RestApi.AzureFunction.Student
         }
 
         [FunctionName("fx-get-all-students")]
+        [OpenApiOperation("Students", "Get")]
+        [OpenApiResponseBody(HttpStatusCode.OK, "application/json", typeof(Domain.Student))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "Students")] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
-
-
             var result = await _trainingManagementDbContext.Students.ToListAsync();
-
             return (ActionResult)new OkObjectResult(result);
                 
         }
