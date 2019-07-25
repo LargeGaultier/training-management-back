@@ -28,7 +28,7 @@ namespace TrainingManagement.RestApi.AzureFunction.Student
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
-            var result = await _trainingManagementDbContext.Students.ToListAsync();
+            var result = await _trainingManagementDbContext.Student.ToListAsync();
             return (ActionResult)new OkObjectResult(result);
                 
         }
