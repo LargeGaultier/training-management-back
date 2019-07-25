@@ -15,7 +15,6 @@ namespace TrainingManagement.RestApi.Domain
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Office365Id { get; set; }
         public bool? Activated { get; set; }
         public int ClassId { get; set; }
         public string Mail { get; set; }
