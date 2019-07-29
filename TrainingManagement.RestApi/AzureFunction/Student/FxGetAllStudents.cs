@@ -22,15 +22,15 @@ namespace TrainingManagement.RestApi.AzureFunction.Student
 
         [FunctionName("fx-get-all-students")]
         [OpenApiOperation("Students", "Get")]
-        [OpenApiResponseBody(HttpStatusCode.OK, "application/json", typeof(Domain.Student))]
+        [OpenApiResponseBody(HttpStatusCode.OK, "application/json", typeof(Domain.Ref.Student))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "Students")] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
-            var result = await _trainingManagementDbContext.Student.ToListAsync();
-            return (ActionResult)new OkObjectResult(result);
-                
+            //var result = await _trainingManagementDbContext.Student.ToListAsync();
+            //return (ActionResult)new OkObjectResult(result);
+            return null;
         }
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using TrainingManagement.RestApi.Domain;
+using TrainingManagement.RestApi.Domain.Ref;
 
 namespace TrainingManagement.RestApi.Persistence.Configuration
 {

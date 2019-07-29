@@ -1,30 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using TrainingManagement.RestApi.Domain.Base;
 
-namespace TrainingManagement.RestApi.Domain
+namespace TrainingManagement.RestApi.Domain.Ref
 {
-    public partial class Skill
+    public partial class Skill : BaseEntityHisto
     {
         public Skill()
         {
-            Levels = new HashSet<Level>();
+            Levels = new HashSet<SkillRatingLevel>();
             ProjectSkills = new HashSet<ProjectSkill>();
             UeSkills = new HashSet<UeSkill>();
+            TagSkills = new HashSet<TagSkill>();
         }
-
-        public int Id { get; set; }
         public string Label { get; set; }
         public string Description { get; set; }
         public bool Validated { get; set; }
-        public int? DomainId { get; set; }
-        public int TrainingCenterId { get; set; }
-
+        public long TrainingCenterId { get; set; }
         public virtual TrainingCenter TrainingCenter { get; set; }
-        public virtual Domain Domain { get; set; }
-        public virtual ICollection<Level> Levels { get; set; }
+        public virtual ICollection<SkillRatingLevel> Levels { get; set; }
         public virtual ICollection<ProjectSkill> ProjectSkills { get; set; }
         public virtual ICollection<UeSkill> UeSkills { get; set; }
-
-
+        public virtual ICollection<TagSkill> TagSkills { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using TrainingManagement.RestApi.Domain.Ref;
 
 namespace TrainingManagement.RestApi.Domain
 {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TrainingManagement.RestApi.Domain;
+using TrainingManagement.RestApi.Domain.Ref;
 using TrainingManagement.RestApi.Persistence.Extension;
 
 namespace TrainingManagement.RestApi.Persistence
@@ -11,22 +12,22 @@ namespace TrainingManagement.RestApi.Persistence
            : base(options)
         { }
 
-        public virtual DbSet<Class> Class { get; set; }
-        public virtual DbSet<EducationalManager> EducationalManager { get; set; }
-        public virtual DbSet<Evaluation> Evaluation { get; set; }
-        public virtual DbSet<EvaluationProjectSkill> EvaluationProjectSkill { get; set; }
-        public virtual DbSet<Group> Group1 { get; set; }
-        public virtual DbSet<Intervener> Intervener { get; set; }
-        public virtual DbSet<Level> Level { get; set; }
-        public virtual DbSet<Project> Project { get; set; }
-        public virtual DbSet<ProjectSkill> ProjectSkill { get; set; }
-        public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<Skill> Skill { get; set; }
-        public virtual DbSet<Student> Student { get; set; }
-        public virtual DbSet<StudentGroup> StudentGroup { get; set; }
-        public virtual DbSet<Ue> Ue { get; set; }
-        public virtual DbSet<UeSkill> UeSkill { get; set; }
-        public virtual DbSet<Uv> Uv { get; set; }
+        //public virtual DbSet<Class> Class { get; set; }
+        //public virtual DbSet<EducationalManager> EducationalManager { get; set; }
+        //public virtual DbSet<Run_EvaluationIndividual> Evaluation { get; set; }
+        //public virtual DbSet<Run_EvaluationProjectSkill> EvaluationProjectSkill { get; set; }
+        //public virtual DbSet<Run_ProjetGroup> Group1 { get; set; }
+        //public virtual DbSet<TrainingTeamMember> Intervener { get; set; }
+        //public virtual DbSet<SkillRatingLevel> Level { get; set; }
+        //public virtual DbSet<Project> Project { get; set; }
+        //public virtual DbSet<ProjectSkill> ProjectSkill { get; set; }
+        //public virtual DbSet<Role> Role { get; set; }
+        //public virtual DbSet<Skill> Skill { get; set; }
+        //public virtual DbSet<Student> Student { get; set; }
+        //public virtual DbSet<Run_StudentGroup> StudentGroup { get; set; }
+        //public virtual DbSet<Ue> Ue { get; set; }
+        //public virtual DbSet<UeSkill> UeSkill { get; set; }
+        //public virtual DbSet<Uv> Uv { get; set; }
 
 
 

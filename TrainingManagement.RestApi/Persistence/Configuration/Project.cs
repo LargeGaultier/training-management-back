@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using TrainingManagement.RestApi.Domain.Ref;
 
 namespace TrainingManagement.RestApi.Domain
 {
@@ -7,13 +8,13 @@ namespace TrainingManagement.RestApi.Domain
     {
         public void Configure(EntityTypeBuilder<Project> entity)
         {
-                entity.HasOne(d => d.Intervener)
-                    .WithMany(p => p.Projects)
-                    .HasForeignKey(d => d.IntervenerId);
+            //    entity.HasOne(d => d.Intervener)
+            //        .WithMany(p => p.Projects)
+            //        .HasForeignKey(d => d.IntervenerId);
 
-            entity.HasOne(d => d.TrainingCenter)
-            .WithMany(p => p.Projects)
-            .HasForeignKey(d => d.TrainingCenterId);
+            //entity.HasOne(d => d.TrainingCenter)
+            //.WithMany(p => p.Projects)
+            //.HasForeignKey(d => d.TrainingCenterId);
            
         }
     }
