@@ -17,12 +17,16 @@ namespace TrainingManagement.RestApi.Domain.Run
         public int Coefficient { get; set; }
         public string Description { get; set; }
         public long TrainingCenterId { get; set; }
+        public long Run_TrainingYearId { get; set; }
+        public long DegreeId { get; set; }
         public long UvId { get; set; }
         public virtual TrainingCenter TrainingCenter { get; set; }
         public virtual ICollection<Run_Ue> Run_Ues { get; set; }
+        public virtual Run_TrainingYear Run_TrainingYear { get; set; }
         public virtual Uv Uv { get; set; }
-        //public virtual ICollection<DegreeUv> DegreeUvs { get; set; }
-        //public virtual ICollection<TrainingYearUv> TrainingYearUvs { get; set; }
+        public virtual Degree Degree { get; set; }
+        
+        
 
     }
 }

@@ -9,11 +9,14 @@ namespace TrainingManagement.RestApi.Domain.Ref
         public TrainingTeamMember()
         {
             ProjectTrainingTeamMembers = new HashSet<ProjectTrainingTeamMember>();
+            TagTrainingTeamMembers = new HashSet<TagTrainingTeamMember>();
         }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public long TrainingCenterId { get; set; }
         public virtual TrainingCenter TrainingCenter { get; set; }
         public virtual ICollection<ProjectTrainingTeamMember> ProjectTrainingTeamMembers { get; set; }
+        public virtual ICollection<TagTrainingTeamMember> TagTrainingTeamMembers { get; set; }
+
     }
 }

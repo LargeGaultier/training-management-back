@@ -10,8 +10,10 @@ namespace TrainingManagement.RestApi.Domain.Ref
         public Tag()
         {
             TagSkills = new HashSet<TagSkill>();
+            TagTrainingTeamMembers = new HashSet<TagTrainingTeamMember>();
         }
         public string Name { get; set; }
         public virtual ICollection<TagSkill> TagSkills { get; set; }
+        public virtual ICollection<TagTrainingTeamMember> TagTrainingTeamMembers { get; set; }
     }
 }
