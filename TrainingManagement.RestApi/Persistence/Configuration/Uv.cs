@@ -8,9 +8,9 @@ namespace TrainingManagement.RestApi.Domain
     {
         public void Configure(EntityTypeBuilder<Uv> entity)
         {
-            entity.HasOne(d => d.TrainingCenter)
-                .WithMany(p => p.Uvs)
-                .HasForeignKey(d => d.TrainingCenterId);
+            //entity.HasOne(d => d.TrainingCenter)
+            //    .WithMany(p => p.Uvs)
+            //    .HasForeignKey(d => d.TrainingCenterId);
         }
     }
 }

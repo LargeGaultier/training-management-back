@@ -9,13 +9,13 @@ namespace TrainingManagement.RestApi.Persistence.Configuration
     {
         public void Configure(EntityTypeBuilder<DegreeUv> entity)
         {
-            entity.HasOne(d => d.Degree)
-                .WithMany(p => p.DegreeUvs)
-                .HasForeignKey(d => d.DegreeId);
+            //entity.HasOne(d => d.Degree)
+            //    .WithMany(p => p.DegreeUvs)
+            //    .HasForeignKey(d => d.DegreeId);
 
-            entity.HasOne(d => d.Uv)
-                .WithMany(p => p.DegreeUvs)
-                .HasForeignKey(d => d.UvId);
+            //entity.HasOne(d => d.Uv)
+            //    .WithMany(p => p.DegreeUvs)
+            //    .HasForeignKey(d => d.UvId);
         }
     }
 }

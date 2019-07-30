@@ -8,6 +8,10 @@
     <PackageReference Include="Aliencube.AzureFunctions.Extensions.Configuration.Json" Version="2.1.1" />
     <PackageReference Include="Aliencube.AzureFunctions.Extensions.DependencyInjection" Version="2.2.0" />
     <PackageReference Include="Aliencube.AzureFunctions.Extensions.OpenApi" Version="1.5.4" />
+    <PackageReference Include="FluentValidation" Version="8.4.0" />
+    <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.6" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.29" />
     <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.6" />
@@ -24,6 +28,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Application\Ref\TrainingCenter\Command\" />
+    <Folder Include="Application\Run\" />
+    <Folder Include="AzureFunction\Run\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

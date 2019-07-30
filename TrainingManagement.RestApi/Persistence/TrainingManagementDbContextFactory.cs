@@ -4,14 +4,14 @@ using System;
 
 namespace TrainingManagement.RestApi.Persistence
 {
-    public class TrainingManagementDbContextFactory : IDesignTimeDbContextFactory<TrainingManagementDbContext>
+    public class TrainingManagementDbContextFactory : IDesignTimeDbContextFactory<TrainingManagementRefDbContext>
     {
-        public TrainingManagementDbContext CreateDbContext(string[] args)
+        public TrainingManagementRefDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<TrainingManagementDbContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<TrainingManagementRefDbContext>();
             optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("SqlConnectionString"));
 
-            return new TrainingManagementDbContext(optionsBuilder.Options);
+            return new TrainingManagementRefDbContext(optionsBuilder.Options);
         }
     }
 }

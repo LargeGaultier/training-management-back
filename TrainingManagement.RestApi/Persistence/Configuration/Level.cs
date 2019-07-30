@@ -8,13 +8,13 @@ namespace TrainingManagement.RestApi.Domain
     {
         public void Configure(EntityTypeBuilder<SkillRatingLevel> entity)
         {
-                entity.Property(e => e.Description).IsRequired();
+                //entity.Property(e => e.Description).IsRequired();
 
-                entity.HasOne(d => d.Skill)
-                    .WithMany(p => p.Levels)
-                    .HasForeignKey(d => d.IdSkill)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK_Goal_Skill");
+                //entity.HasOne(d => d.Skill)
+                //    .WithMany(p => p.Levels)
+                //    .HasForeignKey(d => d.IdSkill)
+                //    .OnDelete(DeleteBehavior.Cascade)
+                //    .HasConstraintName("FK_Goal_Skill");
         }
     }
 }

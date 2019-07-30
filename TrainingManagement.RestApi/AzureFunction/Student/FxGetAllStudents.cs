@@ -14,8 +14,8 @@ namespace TrainingManagement.RestApi.AzureFunction.Student
 {
     public  class FxGetAllStudents
     {
-        private readonly TrainingManagementDbContext _trainingManagementDbContext;
-        public FxGetAllStudents(TrainingManagementDbContext trainingManagementDbContext)
+        private readonly TrainingManagementRefDbContext _trainingManagementDbContext;
+        public FxGetAllStudents(TrainingManagementRefDbContext trainingManagementDbContext)
         {
             _trainingManagementDbContext = trainingManagementDbContext;
         }

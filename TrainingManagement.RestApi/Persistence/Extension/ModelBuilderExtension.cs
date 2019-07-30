@@ -16,7 +16,7 @@ namespace TrainingManagement.RestApi.Persistence.Extension
                 .First(m => m.Name.Equals("ApplyConfiguration", StringComparison.OrdinalIgnoreCase));
 
 #pragma warning disable S1481 // Unused local variables should be removed
-            System.Collections.Generic.List<object> ret = typeof(TrainingManagementDbContext).Assembly
+            System.Collections.Generic.List<object> ret = typeof(TrainingManagementRefDbContext).Assembly
 #pragma warning restore S1481 // Unused local variables should be removed
                 .GetTypes()
                 .Select(t => (t, i: t.GetInterfaces().FirstOrDefault(i => i.Name.Equals(typeof(IEntityTypeConfiguration<>).Name, StringComparison.Ordinal))))

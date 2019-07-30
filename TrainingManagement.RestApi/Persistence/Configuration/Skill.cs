@@ -8,13 +8,13 @@ namespace TrainingManagement.RestApi.Domain
     {
         public void Configure(EntityTypeBuilder<Skill> entity)
         {
-            entity.HasMany(d => d.TagSkills)
-                  .WithOne(p => p.Skill)
-                  .HasForeignKey(d => d.SkillId);
+            //entity.HasMany(d => d.TagSkills)
+            //      .WithOne(p => p.Skill)
+            //      .HasForeignKey(d => d.SkillId);
 
-            entity.HasOne(d => d.TrainingCenter)
-                .WithMany(p => p.Skills)
-                .HasForeignKey(d => d.TrainingCenterId);
+            //entity.HasOne(d => d.TrainingCenter)
+            //    .WithMany(p => p.Skills)
+            //    .HasForeignKey(d => d.TrainingCenterId);
         }
     }
 }

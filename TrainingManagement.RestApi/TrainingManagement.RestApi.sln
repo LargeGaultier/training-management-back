@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingManagement.RestApi", "TrainingManagement.RestApi.csproj", "{3507F187-2019-4F21-A0B8-726670C94F81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingManagement.RestApi", "TrainingManagement.RestApi.csproj", "{3507F187-2019-4F21-A0B8-726670C94F81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
