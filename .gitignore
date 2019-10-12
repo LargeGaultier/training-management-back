@@ -6,3 +6,5 @@
 /.vs
 /TrainingManagement.RestApi/Properties/PublishProfiles
 /TrainingManagement.RestApi/Properties/PublishProfiles
+/TrainingManagement.WebApi/.vs/TrainingManagement.WebApi/v16
+/TrainingManagement.WebApi/obj/Debug/netcoreapp3.0
