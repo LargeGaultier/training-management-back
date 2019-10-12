@@ -10,7 +10,7 @@ namespace TrainingManagement.RestApi.Application.Ref.TrainingCenter.Models
         public long Id { get; set; }
         public string Name { get; set; }
 
-        public static Expression<Func<Domain.Ref.TrainingCenter, TrainingCenterDTO>> Projection
+        public static Expression<Func<Domain.Ref.Ref_TrainingCenter, TrainingCenterDTO>> Projection
         {
             get
             {

@@ -11,6 +11,6 @@ namespace TrainingManagement.RestApi.Domain.Run
         public int ProjectGroupId { get; set; }
 
         public virtual Run_ProjetGroup ProjetGroup { get; set; }
-        public virtual Student Student { get; set; }
+        public virtual Ref_Student Student { get; set; }
     }
 }

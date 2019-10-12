@@ -19,10 +19,10 @@ namespace TrainingManagement.RestApi.Domain.Run
         public string EndDate { get; set; }
         public long TrainingCenterId { get; set; }
         public long ProjectId { get; set; }
-        public virtual TrainingCenter TrainingCenter { get; set; }
+        public virtual Ref_TrainingCenter TrainingCenter { get; set; }
         public virtual ICollection<Run_ProjectSkill> ProjectSkills { get; set; }
         public virtual ICollection<Run_ProjectTrainingTeamMember> Run_ProjectTrainingTeamMembers { get; set; }
-        public virtual Project Project {get;set;}
+        public virtual Ref_Project Project {get;set;}
     }
 
 }

@@ -17,7 +17,7 @@ namespace TrainingManagement.RestApi.Domain.Run
     public long Coefficient { get; set; }
     public long RequiredLevelId { get; set; }
     public long projectSkillId { get; set; }
-    public virtual ProjectSkill ProjectSkill { get; set; }
+    public virtual Ref_ProjectSkill ProjectSkill { get; set; }
     public virtual Run_Project Run_Project { get; set; }
     public virtual Run_SkillRatingLevel Run_RequiredLevel { get; set; }
     public virtual Run_Skill Run_Skill { get; set; }

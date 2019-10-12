@@ -22,7 +22,7 @@ namespace TrainingManagement.RestApi.Application.Ref.TrainingCenter.Queries
 
         public Task<List<Models.TrainingCenterDTO>> Handle(GetAllTrainingCenterQuery request, CancellationToken cancellationToken)
         {
-            return _context.TrainingCenter
+            return _context.Ref_TrainingCenter
                 .Select(Models.TrainingCenterDTO.Projection)
                 .ToListAsync(cancellationToken);
         }

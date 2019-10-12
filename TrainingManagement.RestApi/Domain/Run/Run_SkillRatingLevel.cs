@@ -17,7 +17,7 @@ namespace TrainingManagement.RestApi.Domain.Run
         public long? Run_SkillId { get; set; }
         public long Run_RatingLevelId { get; set; }
         public long SkillRatingLevelId { get; set; }
-        public virtual SkillRatingLevel SkillRatingLevel { get; set; }
+        public virtual Ref_SkillRatingLevel SkillRatingLevel { get; set; }
         public virtual Run_RatingLevel Run_RatingLevel { get; set; }
         public virtual Run_Skill Run_Skill { get; set; }
         public virtual ICollection<Run_ProjectSkill> Run_ProjectSkills { get; set; }

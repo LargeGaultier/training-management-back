@@ -19,7 +19,7 @@ namespace TrainingManagement.RestApi.Domain.Run
         public long? GroupId { get; set; }
         public virtual Run_ProjetGroup Group { get; set; }
         public virtual Run_EducationalManager EducationalManager { get; set; }
-        public virtual TrainingTeamMember Intervener { get; set; }
+        public virtual Ref_TrainingTeamMember Intervener { get; set; }
         public virtual Run_EvaluationGroup ParentEvaluation { get; set; }
         public virtual ICollection<Run_EvaluationIndividualProjectSkill> EvaluationProjectSkills { get; set; }
         public virtual ICollection<Run_EvaluationIndividual> EvaluationIndividuals { get; set; }

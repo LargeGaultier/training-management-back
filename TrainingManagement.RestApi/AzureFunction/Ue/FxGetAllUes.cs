@@ -24,12 +24,12 @@ namespace TrainingManagement.RestApi.AzureFunction.Uv
 
         [FunctionName("fx-get-all-ues")]
         [OpenApiOperation("Ues", "Get")]
-        [OpenApiResponseBody(HttpStatusCode.OK, "application/json", typeof(Domain.Ref.Ue))]
+        [OpenApiResponseBody(HttpStatusCode.OK, "application/json", typeof(Domain.Ref.Ref_Ue))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "Ues")] HttpRequest req,
             ILogger log)
         {
-            var result = await _trainingManagementDbContext.Ue.ToListAsync();
+            var result = await _trainingManagementDbContext.Ref_Ue.ToListAsync();
             return (ActionResult)new OkObjectResult(result);
         }
     }

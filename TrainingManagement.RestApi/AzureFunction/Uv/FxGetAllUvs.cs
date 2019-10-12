@@ -24,12 +24,12 @@ namespace TrainingManagement.RestApi.AzureFunction.Uv
 
         [FunctionName("fx-get-all-uvs")]
         [OpenApiOperation("Uvs", "Get")]
-        [OpenApiResponseBody(HttpStatusCode.OK, "application/json", typeof(Domain.Ref.Uv))]
+        [OpenApiResponseBody(HttpStatusCode.OK, "application/json", typeof(Domain.Ref.Ref_Uv))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "Uvs")] HttpRequest req,
             ILogger log)
         {
-            var result = await _trainingManagementDbContext.Uv.ToListAsync();
+            var result = await _trainingManagementDbContext.Ref_Uv.ToListAsync();
             return (ActionResult)new OkObjectResult(result);
         }
     }
