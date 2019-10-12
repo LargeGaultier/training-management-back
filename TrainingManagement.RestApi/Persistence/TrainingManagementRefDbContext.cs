@@ -16,7 +16,8 @@ namespace TrainingManagement.RestApi.Persistence
         public virtual DbSet<Uv> Uv { get; set; }
         public virtual DbSet<Ue> Ue { get; set; }
         public virtual DbSet<UeSkill> UeSkill { get; set; }
-        
+        public virtual DbSet<Skill> Skill { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyAllConfigurations();
