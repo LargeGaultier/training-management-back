@@ -6,6 +6,10 @@
   <ItemGroup>
     <Compile Remove="Migrations\20191011222639_InitialMigration.cs" />
     <Compile Remove="Migrations\20191011222639_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20191012131112_AddReferentialEntities.cs" />
+    <Compile Remove="Migrations\20191012131112_AddReferentialEntities.Designer.cs" />
+    <Compile Remove="Migrations\20191012131446_AddReferentialEntities.cs" />
+    <Compile Remove="Migrations\20191012131446_AddReferentialEntities.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Aliencube.AzureFunctions.Extensions.Configuration.AppSettings" Version="1.1.0" />

@@ -20,11 +20,11 @@ namespace TrainingManagement.RestApi.Domain.Run
         public bool Validated { get; set; }
         public long TrainingCenterId { get; set; }
         public long SkillId { get; set; }
-        public virtual TrainingCenter TrainingCenter { get; set; }
+        public virtual Ref_TrainingCenter TrainingCenter { get; set; }
         public virtual ICollection<Run_SkillRatingLevel> Run_SkillRatingLevels { get; set; }
         public virtual ICollection<Run_ProjectSkill> Run_ProjectSkills { get; set; }
         public virtual ICollection<Run_UeSkill> Run_UeSkills { get; set; }
-        public virtual Skill Skill { get; set; }
+        public virtual Ref_Skill Skill { get; set; }
         //public virtual ICollection<Run_TagSkill> TagSkills { get; set; }
 
     }

@@ -24,12 +24,12 @@ namespace TrainingManagement.RestApi.AzureFunction.Uv
 
         [FunctionName("fx-get-all-skills")]
         [OpenApiOperation("Skills", "Get")]
-        [OpenApiResponseBody(HttpStatusCode.OK, "application/json", typeof(Domain.Ref.Skill))]
+        [OpenApiResponseBody(HttpStatusCode.OK, "application/json", typeof(Domain.Ref.Ref_Skill))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "Skills")] HttpRequest req,
             ILogger log)
         {
-            var result = await _trainingManagementDbContext.UeSkill.ToListAsync();
+            var result = await _trainingManagementDbContext.Ref_UeSkill.ToListAsync();
             return (ActionResult)new OkObjectResult(result);
         }
     }

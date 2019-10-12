@@ -10,13 +10,13 @@ namespace TrainingManagement.RestApi.Domain.Run
     {
         public Run_TrainingYear()
         {
-            Students = new HashSet<Student>();
+            Students = new HashSet<Ref_Student>();
         }
 
         public string Name { get; set; }
         public long ScholarYearId { get; set; }
         public long TrainingYearId { get; set; } 
-        public virtual ICollection<Student>  Students { get; set; }
-        public virtual TrainingYear TrainingYear { get; set; }
+        public virtual ICollection<Ref_Student>  Students { get; set; }
+        public virtual Ref_TrainingYear TrainingYear { get; set; }
     }
 }

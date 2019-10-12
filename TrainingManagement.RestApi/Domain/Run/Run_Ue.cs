@@ -19,6 +19,6 @@ namespace TrainingManagement.RestApi.Domain.Run
         public long UeId { get; set; }
         public virtual Run_Uv Run_Uv { get; set; }
         public virtual ICollection<Run_UeSkill> Run_UeSkills { get; set; }
-        public virtual Ue Ue { get; set; }
+        public virtual Ref_Ue Ue { get; set; }
     }
 }

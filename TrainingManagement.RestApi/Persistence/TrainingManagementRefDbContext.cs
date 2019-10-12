@@ -12,11 +12,11 @@ namespace TrainingManagement.RestApi.Persistence
            : base(options)
         { }
 
-        public virtual DbSet<TrainingCenter> TrainingCenter { get; set; }
-        public virtual DbSet<Uv> Uv { get; set; }
-        public virtual DbSet<Ue> Ue { get; set; }
-        public virtual DbSet<UeSkill> UeSkill { get; set; }
-        public virtual DbSet<Skill> Skill { get; set; }
+        public virtual DbSet<Ref_TrainingCenter> Ref_TrainingCenter { get; set; }
+        public virtual DbSet<Ref_Uv> Ref_Uv { get; set; }
+        public virtual DbSet<Ref_Ue> Ref_Ue { get; set; }
+        public virtual DbSet<Ref_UeSkill> Ref_UeSkill { get; set; }
+        public virtual DbSet<Ref_Skill> Ref_Skill { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

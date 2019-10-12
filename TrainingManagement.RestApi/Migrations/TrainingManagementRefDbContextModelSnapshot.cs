@@ -19,7 +19,36 @@ namespace TrainingManagement.RestApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Degree", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_Block", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Coefficient");
+
+                    b.Property<DateTime>("CreationDate");
+
+                    b.Property<string>("CreatorLogin");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Label");
+
+                    b.Property<DateTime>("LastUpdateDate");
+
+                    b.Property<string>("LastUpdaterLogin");
+
+                    b.Property<long?>("Ref_TrainingCenterId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Ref_TrainingCenterId");
+
+                    b.ToTable("Ref_Block");
+                });
+
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_Degree", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -35,37 +64,35 @@ namespace TrainingManagement.RestApi.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("TrainingCenterId");
-
-                    b.Property<long?>("TrainingCenterId1");
+                    b.Property<long?>("Ref_TrainingCenterId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TrainingCenterId1");
+                    b.HasIndex("Ref_TrainingCenterId");
 
-                    b.ToTable("Degree");
+                    b.ToTable("Ref_Degree");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.DegreeUv", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_DegreeBlock", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("DegreeId");
+                    b.Property<long>("Ref_BlockId");
 
-                    b.Property<long>("UvId");
+                    b.Property<long>("Ref_DegreeId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DegreeId");
+                    b.HasIndex("Ref_BlockId");
 
-                    b.HasIndex("UvId");
+                    b.HasIndex("Ref_DegreeId");
 
-                    b.ToTable("DegreeUv");
+                    b.ToTable("Ref_DegreeBlock");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Project", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_Project", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -79,28 +106,28 @@ namespace TrainingManagement.RestApi.Migrations
 
                     b.Property<string>("EndDate");
 
-                    b.Property<long?>("IntervenerId");
-
                     b.Property<string>("Label");
 
                     b.Property<DateTime>("LastUpdateDate");
 
                     b.Property<string>("LastUpdaterLogin");
 
-                    b.Property<string>("StartDate");
+                    b.Property<long>("Ref_TrainingCenterId");
 
-                    b.Property<long>("TrainingCenterId");
+                    b.Property<long?>("Ref_TrainingTeamMemberId");
+
+                    b.Property<string>("StartDate");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IntervenerId");
+                    b.HasIndex("Ref_TrainingCenterId");
 
-                    b.HasIndex("TrainingCenterId");
+                    b.HasIndex("Ref_TrainingTeamMemberId");
 
-                    b.ToTable("Project");
+                    b.ToTable("Ref_Project");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.ProjectSkill", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_ProjectSkill", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -116,45 +143,45 @@ namespace TrainingManagement.RestApi.Migrations
 
                     b.Property<string>("LastUpdaterLogin");
 
-                    b.Property<long>("ProjectId");
+                    b.Property<long>("Ref_ProjectId");
 
-                    b.Property<long>("RequiredLevelId");
+                    b.Property<long>("Ref_SkillId");
 
-                    b.Property<long>("SkillId");
+                    b.Property<long>("Ref_SkillRatingLevelId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProjectId");
+                    b.HasIndex("Ref_ProjectId");
 
-                    b.HasIndex("RequiredLevelId");
+                    b.HasIndex("Ref_SkillId");
 
-                    b.HasIndex("SkillId");
+                    b.HasIndex("Ref_SkillRatingLevelId");
 
-                    b.ToTable("ProjectSkill");
+                    b.ToTable("Ref_ProjectSkill");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.ProjectTrainingTeamMember", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_ProjectTrainingTeamMember", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("ProjectId");
+                    b.Property<long>("Ref_ProjectId");
+
+                    b.Property<long>("Ref_TrainingTeamMemberId");
 
                     b.Property<string>("Role");
 
-                    b.Property<long>("TrainingTeamMemberId");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("ProjectId");
+                    b.HasIndex("Ref_ProjectId");
 
-                    b.HasIndex("TrainingTeamMemberId");
+                    b.HasIndex("Ref_TrainingTeamMemberId");
 
-                    b.ToTable("ProjectTrainingTeamMember");
+                    b.ToTable("Ref_ProjectTrainingTeamMember");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.RatingLevel", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_RatingLevel", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -174,10 +201,10 @@ namespace TrainingManagement.RestApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RatingLevel");
+                    b.ToTable("Ref_RatingLevel");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Skill", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_Skill", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -195,18 +222,16 @@ namespace TrainingManagement.RestApi.Migrations
 
                     b.Property<string>("LastUpdaterLogin");
 
-                    b.Property<long>("TrainingCenterId");
-
-                    b.Property<bool>("Validated");
+                    b.Property<long>("Ref_TrainingCenterId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TrainingCenterId");
+                    b.HasIndex("Ref_TrainingCenterId");
 
-                    b.ToTable("Skill");
+                    b.ToTable("Ref_Skill");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.SkillRatingLevel", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_SkillRatingLevel", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -220,28 +245,24 @@ namespace TrainingManagement.RestApi.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<long?>("IdSkill");
-
                     b.Property<DateTime>("LastUpdateDate");
 
                     b.Property<string>("LastUpdaterLogin");
 
-                    b.Property<int>("RatingLevelId");
+                    b.Property<long>("Ref_RatingLevelId");
 
-                    b.Property<long?>("RatingLevelId1");
-
-                    b.Property<long?>("SkillId");
+                    b.Property<long>("Ref_SkillId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RatingLevelId1");
+                    b.HasIndex("Ref_RatingLevelId");
 
-                    b.HasIndex("SkillId");
+                    b.HasIndex("Ref_SkillId");
 
-                    b.ToTable("SkillRatingLevel");
+                    b.ToTable("Ref_SkillRatingLevel");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Student", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_Student", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -263,26 +284,16 @@ namespace TrainingManagement.RestApi.Migrations
 
                     b.Property<string>("Photo");
 
-                    b.Property<long?>("Run_PromotionId");
-
-                    b.Property<long?>("Run_TrainingYearId");
-
-                    b.Property<int>("TrainingCenterId");
-
-                    b.Property<long?>("TrainingCenterId1");
+                    b.Property<long>("Ref_TrainingCenterId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Run_PromotionId");
+                    b.HasIndex("Ref_TrainingCenterId");
 
-                    b.HasIndex("Run_TrainingYearId");
-
-                    b.HasIndex("TrainingCenterId1");
-
-                    b.ToTable("Student");
+                    b.ToTable("Ref_Student");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Tag", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_Tag", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -300,48 +311,48 @@ namespace TrainingManagement.RestApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tag");
+                    b.ToTable("Ref_Tag");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.TagSkill", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_TagSkill", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("SkillId");
+                    b.Property<long>("Ref_SkillId");
 
-                    b.Property<long>("TagId");
+                    b.Property<long>("Ref_TagId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SkillId");
+                    b.HasIndex("Ref_SkillId");
 
-                    b.HasIndex("TagId");
+                    b.HasIndex("Ref_TagId");
 
-                    b.ToTable("TagSkill");
+                    b.ToTable("Ref_TagSkill");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.TagTrainingTeamMember", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_TagTrainingTeamMember", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("TagId");
+                    b.Property<long>("Ref_TagId");
 
-                    b.Property<long>("TrainingTeamMemberId");
+                    b.Property<long>("Ref_TrainingTeamMemberId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TagId");
+                    b.HasIndex("Ref_TagId");
 
-                    b.HasIndex("TrainingTeamMemberId");
+                    b.HasIndex("Ref_TrainingTeamMemberId");
 
-                    b.ToTable("TagTrainingTeamMember");
+                    b.ToTable("Ref_TagTrainingTeamMember");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.TrainingCenter", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingCenter", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -359,10 +370,10 @@ namespace TrainingManagement.RestApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TrainingCenter");
+                    b.ToTable("Ref_TrainingCenter");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.TrainingTeamMember", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingTeamMember", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -380,16 +391,16 @@ namespace TrainingManagement.RestApi.Migrations
 
                     b.Property<string>("LastUpdaterLogin");
 
-                    b.Property<long>("TrainingCenterId");
+                    b.Property<long>("Ref_TrainingCenterId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TrainingCenterId");
+                    b.HasIndex("Ref_TrainingCenterId");
 
-                    b.ToTable("TrainingTeamMember");
+                    b.ToTable("Ref_TrainingTeamMember");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.TrainingYear", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingYear", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -399,95 +410,45 @@ namespace TrainingManagement.RestApi.Migrations
 
                     b.Property<string>("CreatorLogin");
 
-                    b.Property<long>("DegreeId");
-
                     b.Property<string>("Label");
 
                     b.Property<DateTime>("LastUpdateDate");
 
                     b.Property<string>("LastUpdaterLogin");
+
+                    b.Property<long>("Ref_DegreeId");
 
                     b.Property<int>("YearNumber");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DegreeId");
+                    b.HasIndex("Ref_DegreeId");
 
-                    b.ToTable("TrainingYear");
+                    b.ToTable("Ref_TrainingYear");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.TrainingYearUv", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingYearBlock", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("TrainingYearId");
+                    b.Property<long>("Ref_BlockId");
 
-                    b.Property<long>("UvId");
+                    b.Property<long>("Ref_TrainingYearId");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("TrainingYearId");
-
-                    b.HasIndex("UvId");
-
-                    b.ToTable("TrainingYearUv");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ue", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Coefficient");
-
-                    b.Property<DateTime>("CreationDate");
-
-                    b.Property<string>("CreatorLogin");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Label");
-
-                    b.Property<DateTime>("LastUpdateDate");
-
-                    b.Property<string>("LastUpdaterLogin");
-
-                    b.Property<long?>("UvId");
+                    b.Property<long>("Ref_UvId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UvId");
+                    b.HasIndex("Ref_TrainingYearId");
 
-                    b.ToTable("Ue");
+                    b.HasIndex("Ref_UvId");
+
+                    b.ToTable("Ref_TrainingYearBlock");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.UeSkill", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("SkillId");
-
-                    b.Property<long?>("SkillId1");
-
-                    b.Property<int>("UeId");
-
-                    b.Property<long?>("UeId1");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SkillId1");
-
-                    b.HasIndex("UeId1");
-
-                    b.ToTable("UeSkill");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Uv", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_Ue", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -507,464 +468,35 @@ namespace TrainingManagement.RestApi.Migrations
 
                     b.Property<string>("LastUpdaterLogin");
 
-                    b.Property<long?>("TrainingCenterId");
-
-                    b.Property<long?>("UvId");
+                    b.Property<long?>("Ref_UvId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TrainingCenterId");
+                    b.HasIndex("Ref_UvId");
 
-                    b.HasIndex("UvId");
-
-                    b.ToTable("Uv");
+                    b.ToTable("Ref_Ue");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_EducationalManager", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_UeSkill", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CreationDate");
+                    b.Property<long>("Ref_SkillId");
 
-                    b.Property<string>("CreatorLogin");
-
-                    b.Property<long>("IntervenerId");
-
-                    b.Property<DateTime>("LastUpdateDate");
-
-                    b.Property<string>("LastUpdaterLogin");
+                    b.Property<long>("Ref_UeId");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Run_EducationalManager");
+                    b.HasIndex("Ref_SkillId");
+
+                    b.HasIndex("Ref_UeId");
+
+                    b.ToTable("Ref_UeSkill");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_EvaluationGroup", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long?>("EducationalManagerId");
-
-                    b.Property<long?>("GroupId");
-
-                    b.Property<long?>("IntervenerId");
-
-                    b.Property<string>("Label");
-
-                    b.Property<int?>("ParentEvaluationId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EducationalManagerId");
-
-                    b.HasIndex("GroupId");
-
-                    b.HasIndex("IntervenerId");
-
-                    b.HasIndex("ParentEvaluationId");
-
-                    b.ToTable("Run_EvaluationGroup");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_EvaluationIndividual", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate");
-
-                    b.Property<string>("CreatorLogin");
-
-                    b.Property<long?>("EducationalManagerId");
-
-                    b.Property<long?>("IntervenerId");
-
-                    b.Property<string>("Label");
-
-                    b.Property<DateTime>("LastUpdateDate");
-
-                    b.Property<string>("LastUpdaterLogin");
-
-                    b.Property<int?>("ParentEvaluationGroupId");
-
-                    b.Property<long?>("ParentGroupEvaluationId");
-
-                    b.Property<long?>("StudentId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EducationalManagerId");
-
-                    b.HasIndex("IntervenerId");
-
-                    b.HasIndex("ParentEvaluationGroupId");
-
-                    b.HasIndex("StudentId");
-
-                    b.ToTable("Run_EvaluationIndividual");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_EvaluationIndividualProjectSkill", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate");
-
-                    b.Property<string>("CreatorLogin");
-
-                    b.Property<DateTime>("LastUpdateDate");
-
-                    b.Property<string>("LastUpdaterLogin");
-
-                    b.Property<long?>("LevelReachedId");
-
-                    b.Property<long>("RunProjectSkill_Id");
-
-                    b.Property<int?>("Run_EvaluationGroupId");
-
-                    b.Property<long>("Run_EvaluationIndividualId");
-
-                    b.Property<long?>("Run_ProjectSkillId");
-
-                    b.Property<long?>("Run_SkillRatingLevelId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Run_EvaluationGroupId");
-
-                    b.HasIndex("Run_EvaluationIndividualId");
-
-                    b.HasIndex("Run_ProjectSkillId");
-
-                    b.HasIndex("Run_SkillRatingLevelId");
-
-                    b.ToTable("Run_EvaluationIndividualProjectSkill");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_Project", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate");
-
-                    b.Property<string>("CreatorLogin");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("EndDate");
-
-                    b.Property<string>("Label");
-
-                    b.Property<DateTime>("LastUpdateDate");
-
-                    b.Property<string>("LastUpdaterLogin");
-
-                    b.Property<long>("ProjectId");
-
-                    b.Property<string>("StartDate");
-
-                    b.Property<long>("TrainingCenterId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProjectId");
-
-                    b.HasIndex("TrainingCenterId");
-
-                    b.ToTable("Run_Project");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_ProjectSkill", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("Coefficient");
-
-                    b.Property<DateTime>("CreationDate");
-
-                    b.Property<string>("CreatorLogin");
-
-                    b.Property<DateTime>("LastUpdateDate");
-
-                    b.Property<string>("LastUpdaterLogin");
-
-                    b.Property<long>("RequiredLevelId");
-
-                    b.Property<long>("Run_ProjectId");
-
-                    b.Property<long?>("Run_RequiredLevelId");
-
-                    b.Property<long?>("Run_SkillId");
-
-                    b.Property<long>("SkillId");
-
-                    b.Property<long>("projectSkillId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Run_ProjectId");
-
-                    b.HasIndex("Run_RequiredLevelId");
-
-                    b.HasIndex("Run_SkillId");
-
-                    b.HasIndex("projectSkillId");
-
-                    b.ToTable("Run_ProjectSkill");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_ProjectTrainingTeamMember", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate");
-
-                    b.Property<string>("CreatorLogin");
-
-                    b.Property<DateTime>("LastUpdateDate");
-
-                    b.Property<string>("LastUpdaterLogin");
-
-                    b.Property<long>("ProjectId");
-
-                    b.Property<string>("Role");
-
-                    b.Property<long>("TrainingTeamMemberId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProjectId");
-
-                    b.HasIndex("TrainingTeamMemberId");
-
-                    b.ToTable("Run_ProjectTrainingTeamMember");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_ProjetGroup", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate");
-
-                    b.Property<string>("CreatorLogin");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Label");
-
-                    b.Property<DateTime>("LastUpdateDate");
-
-                    b.Property<string>("LastUpdaterLogin");
-
-                    b.Property<long?>("Run_EducationalManagerId");
-
-                    b.Property<long>("Run_ProjectId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Run_EducationalManagerId");
-
-                    b.HasIndex("Run_ProjectId");
-
-                    b.ToTable("Group");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_Promotion", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate");
-
-                    b.Property<string>("CreatorLogin");
-
-                    b.Property<string>("Label");
-
-                    b.Property<DateTime>("LastUpdateDate");
-
-                    b.Property<string>("LastUpdaterLogin");
-
-                    b.Property<long>("RunTrainingYearId");
-
-                    b.Property<long?>("Run_TrainingYearId");
-
-                    b.Property<long>("TrainingCenterId");
-
-                    b.Property<int>("Year");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Run_TrainingYearId");
-
-                    b.HasIndex("TrainingCenterId");
-
-                    b.ToTable("Run_Promotion");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_RatingLevel", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Label");
-
-                    b.Property<long?>("RatingLevelId");
-
-                    b.Property<long>("SkillLevelId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RatingLevelId");
-
-                    b.ToTable("Run_RatingLevel");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_Skill", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate");
-
-                    b.Property<string>("CreatorLogin");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Label");
-
-                    b.Property<DateTime>("LastUpdateDate");
-
-                    b.Property<string>("LastUpdaterLogin");
-
-                    b.Property<long>("SkillId");
-
-                    b.Property<long>("TrainingCenterId");
-
-                    b.Property<bool>("Validated");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SkillId");
-
-                    b.HasIndex("TrainingCenterId");
-
-                    b.ToTable("Run_Skill");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_SkillRatingLevel", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Coefficient");
-
-                    b.Property<DateTime>("CreationDate");
-
-                    b.Property<string>("CreatorLogin");
-
-                    b.Property<string>("Description");
-
-                    b.Property<DateTime>("LastUpdateDate");
-
-                    b.Property<string>("LastUpdaterLogin");
-
-                    b.Property<long>("Run_RatingLevelId");
-
-                    b.Property<long?>("Run_SkillId");
-
-                    b.Property<long>("SkillRatingLevelId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Run_RatingLevelId");
-
-                    b.HasIndex("Run_SkillId");
-
-                    b.HasIndex("SkillRatingLevelId");
-
-                    b.ToTable("Run_SkillRatingLevel");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_StudentGroup", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate");
-
-                    b.Property<string>("CreatorLogin");
-
-                    b.Property<DateTime>("LastUpdateDate");
-
-                    b.Property<string>("LastUpdaterLogin");
-
-                    b.Property<int>("ProjectGroupId");
-
-                    b.Property<long?>("ProjetGroupId");
-
-                    b.Property<int>("StudentId");
-
-                    b.Property<long?>("StudentId1");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProjetGroupId");
-
-                    b.HasIndex("StudentId1");
-
-                    b.ToTable("Run_StudentGroup");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_TrainingYear", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDate");
-
-                    b.Property<string>("CreatorLogin");
-
-                    b.Property<DateTime>("LastUpdateDate");
-
-                    b.Property<string>("LastUpdaterLogin");
-
-                    b.Property<string>("Name");
-
-                    b.Property<long>("ScholarYearId");
-
-                    b.Property<long>("TrainingYearId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TrainingYearId");
-
-                    b.ToTable("Run_TrainingYear");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_Ue", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_Uv", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -984,493 +516,207 @@ namespace TrainingManagement.RestApi.Migrations
 
                     b.Property<string>("LastUpdaterLogin");
 
-                    b.Property<long?>("Run_UvId");
+                    b.Property<long?>("Ref_BlockId");
 
-                    b.Property<long>("UeId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Run_UvId");
-
-                    b.HasIndex("UeId");
-
-                    b.ToTable("Run_Ue");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_UeSkill", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Run_SkillId");
-
-                    b.Property<int>("Run_UeId");
-
-                    b.Property<long?>("SkillId");
-
-                    b.Property<long?>("UeId");
+                    b.Property<long?>("Ref_UvParentId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SkillId");
+                    b.HasIndex("Ref_BlockId");
 
-                    b.HasIndex("UeId");
+                    b.HasIndex("Ref_UvParentId");
 
-                    b.ToTable("Run_UeSkill");
+                    b.ToTable("Ref_Uv");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_Uv", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_Block", b =>
                 {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Coefficient");
-
-                    b.Property<DateTime>("CreationDate");
-
-                    b.Property<string>("CreatorLogin");
-
-                    b.Property<long>("DegreeId");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Label");
-
-                    b.Property<DateTime>("LastUpdateDate");
-
-                    b.Property<string>("LastUpdaterLogin");
-
-                    b.Property<long>("Run_TrainingYearId");
-
-                    b.Property<long>("TrainingCenterId");
-
-                    b.Property<long>("UvId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DegreeId");
-
-                    b.HasIndex("Run_TrainingYearId");
-
-                    b.HasIndex("TrainingCenterId");
-
-                    b.HasIndex("UvId");
-
-                    b.ToTable("Run_Uv");
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingCenter", "Ref_TrainingCenter")
+                        .WithMany("Ref_Blocks")
+                        .HasForeignKey("Ref_TrainingCenterId");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Degree", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_Degree", b =>
                 {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingCenter", "TrainingCenter")
-                        .WithMany("Degrees")
-                        .HasForeignKey("TrainingCenterId1");
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingCenter", "Ref_TrainingCenter")
+                        .WithMany("Ref_Degrees")
+                        .HasForeignKey("Ref_TrainingCenterId");
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.DegreeUv", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_DegreeBlock", b =>
                 {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Degree", "Degree")
-                        .WithMany("DegreeUvs")
-                        .HasForeignKey("DegreeId")
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Block", "Ref_Block")
+                        .WithMany("Ref_DegreeBlocks")
+                        .HasForeignKey("Ref_BlockId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Uv", "Uv")
-                        .WithMany("DegreeUvs")
-                        .HasForeignKey("UvId")
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Degree", "Ref_Degree")
+                        .WithMany("Ref_DegreeBlocks")
+                        .HasForeignKey("Ref_DegreeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Project", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_Project", b =>
                 {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingTeamMember", "Intervener")
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingCenter", "Ref_TrainingCenter")
+                        .WithMany("Ref_Projects")
+                        .HasForeignKey("Ref_TrainingCenterId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingTeamMember", "Ref_TrainingTeamMember")
+                        .WithMany("Ref_Projects")
+                        .HasForeignKey("Ref_TrainingTeamMemberId");
+                });
+
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_ProjectSkill", b =>
+                {
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Project", "Ref_Project")
+                        .WithMany("Ref_ProjectSkills")
+                        .HasForeignKey("Ref_ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Skill", "Ref_Skill")
+                        .WithMany("Ref_ProjectSkills")
+                        .HasForeignKey("Ref_SkillId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_SkillRatingLevel", "Ref_SkillRatingLevel")
+                        .WithMany("Ref_ProjectSkills")
+                        .HasForeignKey("Ref_SkillRatingLevelId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_ProjectTrainingTeamMember", b =>
+                {
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Project", "Ref_Project")
+                        .WithMany("Ref_ProjectTrainingTeamMembers")
+                        .HasForeignKey("Ref_ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingTeamMember", "Ref_TrainingTeamMember")
+                        .WithMany("Ref_ProjectTrainingTeamMembers")
+                        .HasForeignKey("Ref_TrainingTeamMemberId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_Skill", b =>
+                {
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingCenter", "Ref_TrainingCenter")
+                        .WithMany("Ref_Skills")
+                        .HasForeignKey("Ref_TrainingCenterId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_SkillRatingLevel", b =>
+                {
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_RatingLevel", "Ref_RatingLevel")
                         .WithMany()
-                        .HasForeignKey("IntervenerId");
+                        .HasForeignKey("Ref_RatingLevelId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingCenter", "TrainingCenter")
-                        .WithMany("Projects")
-                        .HasForeignKey("TrainingCenterId")
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Skill", "Ref_Skill")
+                        .WithMany("Ref_Levels")
+                        .HasForeignKey("Ref_SkillId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.ProjectSkill", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_Student", b =>
                 {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Project", "Project")
-                        .WithMany("ProjectSkills")
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.SkillRatingLevel", "RequiredLevel")
-                        .WithMany("ProjectSkills")
-                        .HasForeignKey("RequiredLevelId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Skill", "Skill")
-                        .WithMany("ProjectSkills")
-                        .HasForeignKey("SkillId")
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingCenter", "Ref_TrainingCenter")
+                        .WithMany("Ref_Students")
+                        .HasForeignKey("Ref_TrainingCenterId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.ProjectTrainingTeamMember", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_TagSkill", b =>
                 {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Project", "Project")
-                        .WithMany("ProjectTrainingTeamMembers")
-                        .HasForeignKey("ProjectId")
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Skill", "Ref_Skill")
+                        .WithMany("Ref_TagSkills")
+                        .HasForeignKey("Ref_SkillId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingTeamMember", "TrainingTeamMember")
-                        .WithMany("ProjectTrainingTeamMembers")
-                        .HasForeignKey("TrainingTeamMemberId")
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Tag", "Ref_Tag")
+                        .WithMany("Ref_TagSkills")
+                        .HasForeignKey("Ref_TagId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Skill", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_TagTrainingTeamMember", b =>
                 {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingCenter", "TrainingCenter")
-                        .WithMany("Skills")
-                        .HasForeignKey("TrainingCenterId")
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Tag", "Ref_Tag")
+                        .WithMany("Ref_TagTrainingTeamMembers")
+                        .HasForeignKey("Ref_TagId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingTeamMember", "Ref_TrainingTeamMember")
+                        .WithMany("Ref_TagTrainingTeamMembers")
+                        .HasForeignKey("Ref_TrainingTeamMemberId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.SkillRatingLevel", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingTeamMember", b =>
                 {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.RatingLevel", "RatingLevel")
-                        .WithMany()
-                        .HasForeignKey("RatingLevelId1");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Skill", "Skill")
-                        .WithMany("Levels")
-                        .HasForeignKey("SkillId");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Student", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_Promotion")
-                        .WithMany("Students")
-                        .HasForeignKey("Run_PromotionId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_TrainingYear")
-                        .WithMany("Students")
-                        .HasForeignKey("Run_TrainingYearId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingCenter", "TrainingCenter")
-                        .WithMany("Students")
-                        .HasForeignKey("TrainingCenterId1");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.TagSkill", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Skill", "Skill")
-                        .WithMany("TagSkills")
-                        .HasForeignKey("SkillId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Tag", "Tag")
-                        .WithMany("TagSkills")
-                        .HasForeignKey("TagId")
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingCenter", "Ref_TrainingCenter")
+                        .WithMany("Ref_TrainingTeamMembers")
+                        .HasForeignKey("Ref_TrainingCenterId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.TagTrainingTeamMember", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingYear", b =>
                 {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Tag", "Tag")
-                        .WithMany("TagTrainingTeamMembers")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingTeamMember", "TrainingTeamMember")
-                        .WithMany("TagTrainingTeamMembers")
-                        .HasForeignKey("TrainingTeamMemberId")
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Degree", "Ref_Degree")
+                        .WithMany("Ref_TrainingYears")
+                        .HasForeignKey("Ref_DegreeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.TrainingTeamMember", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingYearBlock", b =>
                 {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingCenter", "TrainingCenter")
-                        .WithMany("Interveners")
-                        .HasForeignKey("TrainingCenterId")
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Block", "Ref_Block")
+                        .WithMany("Ref_TrainingYearBlocks")
+                        .HasForeignKey("Ref_TrainingYearId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_TrainingYear", "Ref_TrainingYear")
+                        .WithMany("Ref_TrainingYearBlocks")
+                        .HasForeignKey("Ref_TrainingYearId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Uv", "Ref_Uv")
+                        .WithMany("Ref_TrainingYearBlocks")
+                        .HasForeignKey("Ref_UvId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.TrainingYear", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_Ue", b =>
                 {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Degree", "Degree")
-                        .WithMany("TrainingYears")
-                        .HasForeignKey("DegreeId")
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Uv", "Ref_Uv")
+                        .WithMany("Ref_Ues")
+                        .HasForeignKey("Ref_UvId");
+                });
+
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_UeSkill", b =>
+                {
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Skill", "Ref_Skill")
+                        .WithMany("Ref_UeSkills")
+                        .HasForeignKey("Ref_SkillId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Ue", "Ref_Ue")
+                        .WithMany("Ref_UeSkills")
+                        .HasForeignKey("Ref_UeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.TrainingYearUv", b =>
+            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ref_Uv", b =>
                 {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingYear", "TrainingYear")
-                        .WithMany("TrainingYearUvs")
-                        .HasForeignKey("TrainingYearId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Block", "Ref_Block")
+                        .WithMany("Ref_Uvs")
+                        .HasForeignKey("Ref_BlockId");
 
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Uv", "Uv")
-                        .WithMany("TrainingYearUvs")
-                        .HasForeignKey("UvId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Ue", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Uv", "Uv")
-                        .WithMany("Ues")
-                        .HasForeignKey("UvId");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.UeSkill", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Skill", "Skill")
-                        .WithMany("UeSkills")
-                        .HasForeignKey("SkillId1");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ue", "Ue")
-                        .WithMany("UeSkills")
-                        .HasForeignKey("UeId1");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Ref.Uv", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingCenter", "TrainingCenter")
-                        .WithMany("Uvs")
-                        .HasForeignKey("TrainingCenterId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Uv")
-                        .WithMany("Uvs")
-                        .HasForeignKey("UvId");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_EvaluationGroup", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_EducationalManager", "EducationalManager")
-                        .WithMany("Run_EvaluationGroups")
-                        .HasForeignKey("EducationalManagerId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_ProjetGroup", "Group")
-                        .WithMany()
-                        .HasForeignKey("GroupId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingTeamMember", "Intervener")
-                        .WithMany()
-                        .HasForeignKey("IntervenerId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_EvaluationGroup", "ParentEvaluation")
-                        .WithMany()
-                        .HasForeignKey("ParentEvaluationId");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_EvaluationIndividual", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_EducationalManager", "EducationalManager")
-                        .WithMany("Run_EvaluationIndividuals")
-                        .HasForeignKey("EducationalManagerId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingTeamMember", "Intervener")
-                        .WithMany()
-                        .HasForeignKey("IntervenerId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_EvaluationGroup", "ParentEvaluationGroup")
-                        .WithMany("EvaluationIndividuals")
-                        .HasForeignKey("ParentEvaluationGroupId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Student", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentId");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_EvaluationIndividualProjectSkill", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_EvaluationGroup")
-                        .WithMany("EvaluationProjectSkills")
-                        .HasForeignKey("Run_EvaluationGroupId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_EvaluationIndividual", "Run_EvaluationIndividual")
-                        .WithMany("EvaluationProjectSkills")
-                        .HasForeignKey("Run_EvaluationIndividualId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_ProjectSkill", "Run_ProjectSkill")
-                        .WithMany()
-                        .HasForeignKey("Run_ProjectSkillId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_SkillRatingLevel", "Run_SkillRatingLevel")
-                        .WithMany()
-                        .HasForeignKey("Run_SkillRatingLevelId");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_Project", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Project", "Project")
-                        .WithMany()
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingCenter", "TrainingCenter")
-                        .WithMany()
-                        .HasForeignKey("TrainingCenterId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_ProjectSkill", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_Project", "Run_Project")
-                        .WithMany("ProjectSkills")
-                        .HasForeignKey("Run_ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_SkillRatingLevel", "Run_RequiredLevel")
-                        .WithMany("Run_ProjectSkills")
-                        .HasForeignKey("Run_RequiredLevelId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_Skill", "Run_Skill")
-                        .WithMany("Run_ProjectSkills")
-                        .HasForeignKey("Run_SkillId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.ProjectSkill", "ProjectSkill")
-                        .WithMany()
-                        .HasForeignKey("projectSkillId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_ProjectTrainingTeamMember", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_Project", "Project")
-                        .WithMany("Run_ProjectTrainingTeamMembers")
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingTeamMember", "TrainingTeamMember")
-                        .WithMany()
-                        .HasForeignKey("TrainingTeamMemberId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_ProjetGroup", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_EducationalManager")
-                        .WithMany("Run_ProjetGroups")
-                        .HasForeignKey("Run_EducationalManagerId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_Project", "RunProject")
-                        .WithMany()
-                        .HasForeignKey("Run_ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_Promotion", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_TrainingYear", "Run_TrainingYear")
-                        .WithMany()
-                        .HasForeignKey("Run_TrainingYearId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingCenter", "TrainingCenter")
-                        .WithMany()
-                        .HasForeignKey("TrainingCenterId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_RatingLevel", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.RatingLevel", "RatingLevel")
-                        .WithMany()
-                        .HasForeignKey("RatingLevelId");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_Skill", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Skill", "Skill")
-                        .WithMany()
-                        .HasForeignKey("SkillId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingCenter", "TrainingCenter")
-                        .WithMany()
-                        .HasForeignKey("TrainingCenterId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_SkillRatingLevel", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_RatingLevel", "Run_RatingLevel")
-                        .WithMany()
-                        .HasForeignKey("Run_RatingLevelId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_Skill", "Run_Skill")
-                        .WithMany("Run_SkillRatingLevels")
-                        .HasForeignKey("Run_SkillId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.SkillRatingLevel", "SkillRatingLevel")
-                        .WithMany()
-                        .HasForeignKey("SkillRatingLevelId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_StudentGroup", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_ProjetGroup", "ProjetGroup")
-                        .WithMany("Run_StudentGroups")
-                        .HasForeignKey("ProjetGroupId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Student", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentId1");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_TrainingYear", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingYear", "TrainingYear")
-                        .WithMany()
-                        .HasForeignKey("TrainingYearId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_Ue", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_Uv", "Run_Uv")
-                        .WithMany("Run_Ues")
-                        .HasForeignKey("Run_UvId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ue", "Ue")
-                        .WithMany()
-                        .HasForeignKey("UeId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_UeSkill", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_Skill", "Skill")
-                        .WithMany("Run_UeSkills")
-                        .HasForeignKey("SkillId");
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_Ue", "Ue")
-                        .WithMany("Run_UeSkills")
-                        .HasForeignKey("UeId");
-                });
-
-            modelBuilder.Entity("TrainingManagement.RestApi.Domain.Run.Run_Uv", b =>
-                {
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Degree", "Degree")
-                        .WithMany()
-                        .HasForeignKey("DegreeId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Run.Run_TrainingYear", "Run_TrainingYear")
-                        .WithMany()
-                        .HasForeignKey("Run_TrainingYearId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.TrainingCenter", "TrainingCenter")
-                        .WithMany()
-                        .HasForeignKey("TrainingCenterId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Uv", "Uv")
-                        .WithMany()
-                        .HasForeignKey("UvId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.HasOne("TrainingManagement.RestApi.Domain.Ref.Ref_Uv", "Ref_UvParent")
+                        .WithMany("Ref_Uvs")
+                        .HasForeignKey("Ref_UvParentId");
                 });
 #pragma warning restore 612, 618
         }

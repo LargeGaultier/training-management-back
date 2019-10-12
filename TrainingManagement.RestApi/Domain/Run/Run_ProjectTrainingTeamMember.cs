@@ -11,7 +11,7 @@ namespace TrainingManagement.RestApi.Domain.Run
         public long TrainingTeamMemberId { get; set; }
         public long ProjectId { get; set; }
         public string Role { get; set; }
-        public virtual TrainingTeamMember TrainingTeamMember { get; set; }
+        public virtual Ref_TrainingTeamMember TrainingTeamMember { get; set; }
         public virtual Run_Project Project { get; set; }
     }
 }

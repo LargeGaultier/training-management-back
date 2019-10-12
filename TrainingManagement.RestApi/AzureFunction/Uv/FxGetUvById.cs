@@ -27,11 +27,11 @@ namespace TrainingManagement.RestApi.AzureFunction.Uv
         [FunctionName("fx-get-uv-by-id")]
         [OpenApiOperation("Uv", "GetById")]
         [OpenApiParameter("id", In = ParameterLocation.Query, Required = false ,Type = typeof(int))]
-        [OpenApiResponseBody(HttpStatusCode.OK, "application/json", typeof(Domain.Ref.Uv))]
+        [OpenApiResponseBody(HttpStatusCode.OK, "application/json", typeof(Domain.Ref.Ref_Uv))]
         public async Task<IActionResult> Run([FromRoute]int id,
             ILogger log)
         {
-            var result = await _trainingManagementDbContext.Uv.FirstOrDefaultAsync(e=>e.Id==id);
+            var result = await _trainingManagementDbContext.Ref_Uv.FirstOrDefaultAsync(e=>e.Id==id);
             return (ActionResult)new OkObjectResult(result);
         }
     }

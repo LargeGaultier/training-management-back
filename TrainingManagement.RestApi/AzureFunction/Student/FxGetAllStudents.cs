@@ -22,7 +22,7 @@ namespace TrainingManagement.RestApi.AzureFunction.Student
 
         [FunctionName("fx-get-all-students")]
         [OpenApiOperation("Students", "Get")]
-        [OpenApiResponseBody(HttpStatusCode.OK, "application/json", typeof(Domain.Ref.Student))]
+        [OpenApiResponseBody(HttpStatusCode.OK, "application/json", typeof(Domain.Ref.Ref_Student))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "Students")] HttpRequest req,
             ILogger log)

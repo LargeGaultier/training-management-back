@@ -12,7 +12,7 @@ namespace TrainingManagement.RestApi.Domain.Run
         public string Description { get; set; }
 
         public long SkillLevelId { get; set; }
-        public virtual RatingLevel RatingLevel { get;set;}
+        public virtual Ref_RatingLevel RatingLevel { get;set;}
 
     }
 }
