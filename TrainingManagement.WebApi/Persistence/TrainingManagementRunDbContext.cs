@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TrainingManagement.RestApi.Domain;
-using TrainingManagement.RestApi.Domain.Ref;
-using TrainingManagement.RestApi.Persistence.Extension;
+using TrainingManagement.WebApi.Domain;
+using TrainingManagement.WebApi.Domain.Ref;
+using TrainingManagement.WebApi.Persistence.Extension;
 
-namespace TrainingManagement.RestApi.Persistence
+namespace TrainingManagement.WebApi.Persistence
 {
     public class TrainingManagementRunDbContext : DbContext
     {

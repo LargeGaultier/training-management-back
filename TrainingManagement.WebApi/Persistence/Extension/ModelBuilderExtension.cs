@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace TrainingManagement.RestApi.Persistence.Extension
+namespace TrainingManagement.WebApi.Persistence.Extension
 {
     public static class ModelBuilderExtension
     {

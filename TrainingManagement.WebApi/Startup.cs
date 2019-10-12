@@ -14,9 +14,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using TrainingManagement.RestApi.Application.Infrasctuture;
-using TrainingManagement.RestApi.Application.Ref.TrainingCenter.Queries;
-using TrainingManagement.RestApi.Persistence;
+using TrainingManagement.WebApi.Application.Infrasctuture;
+using TrainingManagement.WebApi.Application.Ref.TrainingCenter.Queries;
+using TrainingManagement.WebApi.Persistence;
 
 namespace TrainingManagement.WebApi
 {

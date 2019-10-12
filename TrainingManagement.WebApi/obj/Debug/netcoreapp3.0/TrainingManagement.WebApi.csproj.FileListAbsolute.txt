@@ -118,7 +118,6 @@ C:\Users\largeg\source\repos\training-management-back\TrainingManagement.WebApi\
 C:\Users\largeg\source\repos\training-management-back\TrainingManagement.WebApi\bin\Debug\netcoreapp3.0\NSwag.Generation.AspNetCore.dll
 C:\Users\largeg\source\repos\training-management-back\TrainingManagement.WebApi\obj\Debug\netcoreapp3.0\TrainingManagement.WebApi.dll
 C:\Users\largeg\source\repos\training-management-back\TrainingManagement.WebApi\obj\Debug\netcoreapp3.0\TrainingManagement.WebApi.pdb
-C:\Users\largeg\source\repos\training-management-back\TrainingManagement.WebApi\obj\Debug\netcoreapp3.0\TrainingManagement.WebApi.csprojAssemblyReference.cache
 C:\Users\largeg\source\repos\training-management-back\TrainingManagement.WebApi\bin\Debug\netcoreapp3.0\libman.json
 C:\Users\largeg\source\repos\training-management-back\TrainingManagement.WebApi\obj\Debug\netcoreapp3.0\TrainingManagement.WebApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\largeg\source\repos\training-management-back\TrainingManagement.WebApi\obj\Debug\netcoreapp3.0\TrainingManagement.WebApi.MvcApplicationPartsAssemblyInfo.cache

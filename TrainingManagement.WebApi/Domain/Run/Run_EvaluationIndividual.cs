@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using TrainingManagement.RestApi.Domain.Base;
-using TrainingManagement.RestApi.Domain.Ref;
+using TrainingManagement.WebApi.Domain.Base;
+using TrainingManagement.WebApi.Domain.Ref;
 
-namespace TrainingManagement.RestApi.Domain.Run
+namespace TrainingManagement.WebApi.Domain.Run
 {
     public partial class Run_EvaluationIndividual:BaseEntityHisto
     {
@@ -17,8 +17,8 @@ namespace TrainingManagement.RestApi.Domain.Run
         public long? IntervenerId { get; set; }
         public long? EducationalManagerId { get; set; }
         public virtual Run_EducationalManager EducationalManager { get; set; }
-        public virtual TrainingTeamMember Intervener { get; set; }
-        public virtual Student Student { get; set; }
+        public virtual Ref_TrainingTeamMember Intervener { get; set; }
+        public virtual Ref_Student Student { get; set; }
         public virtual ICollection<Run_EvaluationIndividualProjectSkill> EvaluationProjectSkills { get; set; }
         public virtual Run_EvaluationGroup ParentEvaluationGroup   { get; set; }
     }

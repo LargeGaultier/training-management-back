@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TrainingManagement.RestApi.Application.Ref.RefBlock.DTO
+namespace TrainingManagement.WebApi.Application.Ref.RefBlock.DTO
 {
     public class RefDegreeDTO
     {

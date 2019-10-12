@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TrainingManagement.RestApi.Application.Infrasctuture
+namespace TrainingManagement.WebApi.Application.Infrasctuture
 {
     public class RequestPerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {

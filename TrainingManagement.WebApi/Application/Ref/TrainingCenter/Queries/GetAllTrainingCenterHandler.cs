@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using TrainingManagement.RestApi.Application.Ref.TrainingCenter.Models;
-using TrainingManagement.RestApi.Persistence;
+using TrainingManagement.WebApi.Application.Ref.TrainingCenter.Models;
+using TrainingManagement.WebApi.Persistence;
 
-namespace TrainingManagement.RestApi.Application.Ref.TrainingCenter.Queries
+namespace TrainingManagement.WebApi.Application.Ref.TrainingCenter.Queries
 {
     public class GetAllTrainingCenterHandler : IRequestHandler<GetAllTrainingCenterQuery, List<Models.TrainingCenterDTO>>
     {
@@ -22,7 +22,7 @@ namespace TrainingManagement.RestApi.Application.Ref.TrainingCenter.Queries
 
         public Task<List<Models.TrainingCenterDTO>> Handle(GetAllTrainingCenterQuery request, CancellationToken cancellationToken)
         {
-            return _context.TrainingCenter
+            return _context.Ref_TrainingCenter
                 .Select(Models.TrainingCenterDTO.Projection)
                 .ToListAsync(cancellationToken);
         }

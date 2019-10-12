@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using TrainingManagement.RestApi.Application.Ref.RefBlock.DTO;
+using TrainingManagement.WebApi.Application.Ref.RefBlock.DTO;
 
 namespace TrainingManagement.WebApi.Controllers.Ref
 {

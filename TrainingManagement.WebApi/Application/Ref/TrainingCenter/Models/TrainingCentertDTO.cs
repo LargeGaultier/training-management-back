@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
+using TrainingManagement.WebApi.Domain.Ref;
 
-namespace TrainingManagement.RestApi.Application.Ref.TrainingCenter.Models
+namespace TrainingManagement.WebApi.Application.Ref.TrainingCenter.Models
 {
     public class TrainingCenterDTO
     {
         public long Id { get; set; }
         public string Name { get; set; }
 
-        public static Expression<Func<Domain.Ref.TrainingCenter, TrainingCenterDTO>> Projection
+        public static Expression<Func<Ref_TrainingCenter, TrainingCenterDTO>> Projection
         {
             get
             {

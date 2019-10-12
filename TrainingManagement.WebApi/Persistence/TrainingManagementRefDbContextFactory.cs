@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Design;
 using System;
 
-namespace TrainingManagement.RestApi.Persistence
+namespace TrainingManagement.WebApi.Persistence
 {
     public class TrainingManagementRefDbContextFactory : IDesignTimeDbContextFactory<TrainingManagementRefDbContext>
     {

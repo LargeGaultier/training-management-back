@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TrainingManagement.RestApi.Domain.Base;
-using TrainingManagement.RestApi.Domain.Ref;
+using TrainingManagement.WebApi.Domain.Base;
+using TrainingManagement.WebApi.Domain.Ref;
 
-namespace TrainingManagement.RestApi.Domain.Run
+namespace TrainingManagement.WebApi.Domain.Run
 {
     public class Run_RatingLevel : BaseEntity
     {
@@ -12,7 +12,7 @@ namespace TrainingManagement.RestApi.Domain.Run
         public string Description { get; set; }
 
         public long SkillLevelId { get; set; }
-        public virtual RatingLevel RatingLevel { get;set;}
+        public virtual Ref_RatingLevel RatingLevel { get;set;}
 
     }
 }

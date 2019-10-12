@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using TrainingManagement.RestApi.Domain.Base;
-using TrainingManagement.RestApi.Domain.Ref;
+using TrainingManagement.WebApi.Domain.Base;
+using TrainingManagement.WebApi.Domain.Ref;
 
-namespace TrainingManagement.RestApi.Domain.Run
+namespace TrainingManagement.WebApi.Domain.Run
 {
     public partial class Run_EvaluationGroupProjectSkill : BaseEntityHisto
     {

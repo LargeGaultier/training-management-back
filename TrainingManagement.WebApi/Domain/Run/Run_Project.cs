@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TrainingManagement.RestApi.Domain.Base;
-using TrainingManagement.RestApi.Domain.Ref;
+using TrainingManagement.WebApi.Domain.Base;
+using TrainingManagement.WebApi.Domain.Ref;
 
-namespace TrainingManagement.RestApi.Domain.Run
+namespace TrainingManagement.WebApi.Domain.Run
 {
     public class Run_Project : BaseEntityHisto
     {
@@ -19,10 +19,10 @@ namespace TrainingManagement.RestApi.Domain.Run
         public string EndDate { get; set; }
         public long TrainingCenterId { get; set; }
         public long ProjectId { get; set; }
-        public virtual TrainingCenter TrainingCenter { get; set; }
+        public virtual Ref_TrainingCenter TrainingCenter { get; set; }
         public virtual ICollection<Run_ProjectSkill> ProjectSkills { get; set; }
         public virtual ICollection<Run_ProjectTrainingTeamMember> Run_ProjectTrainingTeamMembers { get; set; }
-        public virtual Project Project {get;set;}
+        public virtual Ref_Project Project {get;set;}
     }
 
 }
