@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Application\Ref\RefBlock\Commands\" />
     <Folder Include="Application\Ref\TrainingCenter\Command\" />
   </ItemGroup>
 

@@ -1,12 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
+using TrainingManagement.WebApi.Domain.Ref;
 
 namespace TrainingManagement.WebApi.Application.Ref.RefBlock.DTO
 {
     public class RefDegreeDTO
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
+
+        public static RefDegreeDTO ToDTO(Ref_Degree t)
+        {
+            var result = new RefDegreeDTO
+            {
+                Id = t.Id,
+                Name = t.Name
+            };
+            return result;
+        }
+
+        public static Expression<Func<Ref_Degree, RefDegreeDTO>> Projection
+        {
+            get
+            {
+                return t => new RefDegreeDTO
+                {
+                    Id = t.Id,
+                    Name = t.Name
+                };
+            }
+        }
     }
 }

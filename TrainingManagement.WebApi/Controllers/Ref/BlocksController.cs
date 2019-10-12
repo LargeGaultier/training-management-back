@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using TrainingManagement.WebApi.Application.Ref.RefBlock.DTO;
+using TrainingManagement.WebApi.Application.Ref.TrainingCenter.Queries;
 
 namespace TrainingManagement.WebApi.Controllers.Ref
 {
@@ -13,9 +14,9 @@ namespace TrainingManagement.WebApi.Controllers.Ref
         [HttpGet]
         [Route("api/v1/training-center/{id:int}/refblocks")]
         [ProducesResponseType(typeof(IEnumerable<RefBlockDTO>), (int)HttpStatusCode.OK)]
-        public IActionResult Get(long id)
+        public async Task<IActionResult> GetByTrainingCenterIdAsync(long id)
         {
-            return Ok(RefBlockDTO.GetMock(id));
+            return Ok(await Mediator.Send(new GetAllRefBlockByTrainingCenterIdQuery() { trainingCenterId = id }));
         }
     }
 }
