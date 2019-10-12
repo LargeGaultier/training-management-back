@@ -45,9 +45,16 @@ namespace TrainingManagement.WebApi
             services.AddMediatR(typeof(GetAllTrainingCenterHandler).GetTypeInfo().Assembly);
 
             services.AddControllers();
-        
+           services.AddSwaggerDocument();
 
-            services.AddSwaggerDocument();
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200").AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -60,14 +67,14 @@ namespace TrainingManagement.WebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
+            
             app.UseOpenApi();
             app.UseSwaggerUi3();
         }
