@@ -3,6 +3,7 @@ using MediatR.Pipeline;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using System;
 using System.Reflection;
 using TrainingManagement.RestApi.Application.Infrasctuture;
@@ -28,7 +29,9 @@ namespace TrainingManagement.RestApi
             //rajouter la ligne pour le faire par reflexion
            builder.Services.AddMediatR(typeof(GetAllTrainingCenterHandler).GetTypeInfo().Assembly);
 
-
+            builder.Services.AddMvcCore().AddJsonOptions(options => {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
         }
     }
 }

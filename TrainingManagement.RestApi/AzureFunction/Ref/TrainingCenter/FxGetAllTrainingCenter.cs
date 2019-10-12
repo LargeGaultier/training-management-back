@@ -21,20 +21,20 @@ namespace TrainingManagement.RestApi.AzureFunction.Ref.TrainingCenter
         }
 
         [FunctionName("FxGetAllTrainingCenter")]
-        public  async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get",  Route = "TrainingCenters")] HttpRequest req,
+        public  async Task<JsonResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get",  Route = "Training-Centers")] HttpRequest req,
             ILogger log)
         {
             try
             {
 
-                return (ActionResult)new OkObjectResult(await Mediator.Send(new GetAllTrainingCenterQuery()));
+                return new JsonResult(await Mediator.Send(new GetAllTrainingCenterQuery()));
 
             }
             catch (Exception ex)
             {
                 log.LogError(ex.ToString());
-                return (ActionResult)new ObjectResult(ex);
+                return new JsonResult(ex);
             }  
         }
     }
