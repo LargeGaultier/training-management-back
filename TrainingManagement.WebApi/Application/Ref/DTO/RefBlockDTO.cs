@@ -13,8 +13,8 @@ namespace TrainingManagement.WebApi.Application.Ref.DTO
         public string Label { get; set; }
         public string Description { get; set; }
         public long? TrainingCenterId { get; set; }
-        public List<RefDegreeDTO> RefDegreeDTOs { get;set;}
-        public List<RefUvDTO> RefUvDTOs { get; set; }
+        public List<RefDegreeDTO> RefDegrees { get;set;}
+        public List<RefUvDTO> RefUvs { get; set; }
 
         public static RefBlockDTO ToDTO(Ref_Block t)
         {
@@ -25,8 +25,8 @@ namespace TrainingManagement.WebApi.Application.Ref.DTO
                 Description = t.Description,
                 TrainingCenterId = t.Ref_TrainingCenterId
             };
-            result.RefDegreeDTOs.AddRange(t.Ref_DegreeBlocks.Select(e=>e.Ref_Degree).Select(e => RefDegreeDTO.ToDTO(e)));
-            result.RefUvDTOs.AddRange(t.Ref_Uvs.Select(e => RefUvDTO.ToDTO(e)));
+            result.RefDegrees.AddRange(t.Ref_DegreeBlocks.Select(e=>e.Ref_Degree).Select(e => RefDegreeDTO.ToDTO(e)));
+            result.RefUvs.AddRange(t.Ref_Uvs.Select(e => RefUvDTO.ToDTO(e)));
             return result;
         }
 
@@ -53,7 +53,7 @@ namespace TrainingManagement.WebApi.Application.Ref.DTO
                 RefBlockDTO block = new RefBlockDTO()
                 {
                     Id = i,
-                    RefDegreeDTOs = new List<RefDegreeDTO>()
+                    RefDegrees = new List<RefDegreeDTO>()
                     {
                         new RefDegreeDTO()
                         {
@@ -73,7 +73,7 @@ namespace TrainingManagement.WebApi.Application.Ref.DTO
 
                 };
 
-                block.RefUvDTOs = new List<RefUvDTO>();
+                block.RefUvs = new List<RefUvDTO>();
 
                 for (int j = 0; j < 3; j++)
                 {
@@ -82,19 +82,19 @@ namespace TrainingManagement.WebApi.Application.Ref.DTO
                         Id = j,
                         Description = "description UvDev" + j,
                         Label = "UvDev" + j,
-                        ChildrenRefUvDTOs = new List<RefUvDTO>()
+                        ChildrenRefUvs = new List<RefUvDTO>()
                         {
                             new RefUvDTO()
                             {
                                 Id = j+10,
                                 Description = "description sub uv " + (j+10).ToString(),
                                 Label = "Sub uv "+ (j+10).ToString(),
-                                ChildrenRefUvDTOs = null
+                                ChildrenRefUvs = null
                             }
                         }
 
                     };
-                    block.RefUvDTOs.Add(uv);
+                    block.RefUvs.Add(uv);
                 }
                
 

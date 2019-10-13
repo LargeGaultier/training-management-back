@@ -13,7 +13,7 @@ namespace TrainingManagement.WebApi.Application.Ref.DTO
         public long Id { get; set; }
         public string Label { get; set; }
         public string Description { get; set; }
-        public List<RefUvDTO> ChildrenRefUvDTOs { get; set; }
+        public List<RefUvDTO> ChildrenRefUvs { get; set; }
 
 
         public static RefUvDTO ToDTO(Ref_Uv t)
@@ -24,7 +24,7 @@ namespace TrainingManagement.WebApi.Application.Ref.DTO
                 Label = t.Label,
                 Description = t.Description
             };
-            result.ChildrenRefUvDTOs.AddRange(t.Ref_Uvs.Select(e => RefUvDTO.ToDTO(e)));
+            result.ChildrenRefUvs.AddRange(t.Ref_Uvs.Select(e => RefUvDTO.ToDTO(e)));
             return result;
         }
         public static Expression<Func<Ref_Uv, RefUvDTO>> Projection
@@ -36,7 +36,7 @@ namespace TrainingManagement.WebApi.Application.Ref.DTO
                     Id = t.Id,
                     Label = t.Label,
                     Description = t.Description,
-                    ChildrenRefUvDTOs = t.Ref_Uvs.Select(e=>RefUvDTO.ToDTO(e)).ToList()
+                    ChildrenRefUvs = t.Ref_Uvs.Select(e=>RefUvDTO.ToDTO(e)).ToList()
                 };
             }
         }

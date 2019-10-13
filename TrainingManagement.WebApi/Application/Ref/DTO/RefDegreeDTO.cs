@@ -12,7 +12,7 @@ namespace TrainingManagement.WebApi.Application.Ref.DTO
         public long Id { get; set; }
         public string Name { get; set; }
 
-        public List<RefTrainingYearDTO> TrainingYearDTOs { get; set; }
+        public List<RefTrainingYearDTO> RefTrainingYears { get; set; }
 
         public static RefDegreeDTO ToDTO(Ref_Degree t)
         {
@@ -20,7 +20,7 @@ namespace TrainingManagement.WebApi.Application.Ref.DTO
             {
                 Id = t.Id,
                 Name = t.Name,
-                TrainingYearDTOs = t.Ref_TrainingYears.Select(x => RefTrainingYearDTO.ToDTO(x)).ToList()
+                RefTrainingYears = t.Ref_TrainingYears.Select(x => RefTrainingYearDTO.ToDTO(x)).ToList()
             };
             
             return result;
@@ -45,7 +45,7 @@ namespace TrainingManagement.WebApi.Application.Ref.DTO
                 {
                     Id=  1,
                     Name = "Diiage dev",
-                    TrainingYearDTOs = new List<RefTrainingYearDTO>()
+                    RefTrainingYears = new List<RefTrainingYearDTO>()
                     {
                         new RefTrainingYearDTO()
                         {
@@ -72,7 +72,7 @@ namespace TrainingManagement.WebApi.Application.Ref.DTO
                 {
                     Id=  1,
                     Name = "Diiage dev",
-                    TrainingYearDTOs = new List<RefTrainingYearDTO>()
+                    RefTrainingYears = new List<RefTrainingYearDTO>()
                     {
                         new RefTrainingYearDTO()
                         {
