@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using TrainingManagement.WebApi.Domain.Ref;
@@ -13,6 +14,29 @@ namespace TrainingManagement.WebApi.Application.Ref.DTO
 
         public List<RefTrainingYearDTO> TrainingYearDTOs { get; set; }
 
+        public static RefDegreeDTO ToDTO(Ref_Degree t)
+        {
+            var result = new RefDegreeDTO
+            {
+                Id = t.Id,
+                Name = t.Name,
+                TrainingYearDTOs = t.Ref_TrainingYears.Select(x => RefTrainingYearDTO.ToDTO(x)).ToList()
+            };
+            
+            return result;
+        }
+
+        public static Expression<Func<Ref_Degree, RefDegreeDTO>> Projection
+        {
+            get
+            {
+                return t => new RefDegreeDTO
+                {
+                    Id = t.Id,
+                    Name = t.Name
+                };
+            }
+        }
         public static List<RefDegreeDTO> GetMock()
         {
             return new List<RefDegreeDTO>()
@@ -74,26 +98,5 @@ namespace TrainingManagement.WebApi.Application.Ref.DTO
             };
         }
 
-        public static RefDegreeDTO ToDTO(Ref_Degree t)
-        {
-            var result = new RefDegreeDTO
-            {
-                Id = t.Id,
-                Name = t.Name
-            };
-            return result;
-        }
-
-        public static Expression<Func<Ref_Degree, RefDegreeDTO>> Projection
-        {
-            get
-            {
-                return t => new RefDegreeDTO
-                {
-                    Id = t.Id,
-                    Name = t.Name
-                };
-            }
-        }
     }
 }

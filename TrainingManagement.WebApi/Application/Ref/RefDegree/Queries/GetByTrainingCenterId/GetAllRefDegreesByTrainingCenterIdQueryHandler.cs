@@ -21,7 +21,6 @@ namespace TrainingManagement.WebApi.Application.Ref.RefDegree.Queries.GetByTrain
         {
             return _context.Ref_Degree
                  .Where(e => e.Ref_TrainingCenterId == request.trainingCenterId)
-                 .Include(e => e.Ref_TrainingYears)
                  .Select(e => RefDegreeDTO.ToDTO(e))
                  .ToListAsync(cancellationToken);
         }
