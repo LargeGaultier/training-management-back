@@ -10,7 +10,6 @@ namespace TrainingManagement.WebApi.Application.Ref.TrainingCenter.Models
     {
         public long Id { get; set; }
         public string Name { get; set; }
-
         public static Expression<Func<Ref_TrainingCenter, TrainingCenterDTO>> Projection
         {
             get

@@ -19,6 +19,8 @@
 
   <ItemGroup>
     <Folder Include="Application\Ref\RefBlock\Commands\" />
+    <Folder Include="Application\Ref\RefBlock\DTO\" />
+    <Folder Include="Application\Ref\RefDegree\Models\" />
     <Folder Include="Application\Ref\TrainingCenter\Command\" />
   </ItemGroup>
 

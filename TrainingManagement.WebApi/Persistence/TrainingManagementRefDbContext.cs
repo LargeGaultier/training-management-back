@@ -18,6 +18,8 @@ namespace TrainingManagement.WebApi.Persistence
         public virtual DbSet<Ref_UeSkill> Ref_UeSkill { get; set; }
         public virtual DbSet<Ref_Skill> Ref_Skill { get; set; }
         public virtual DbSet<Ref_Block> Ref_Block { get; set; }
+        public virtual DbSet<Ref_DegreeBlock> Ref_DegreeBlock {get;set;}
+        public virtual DbSet<Ref_Degree> Ref_Degree { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

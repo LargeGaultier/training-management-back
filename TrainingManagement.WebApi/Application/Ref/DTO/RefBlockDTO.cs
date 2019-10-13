@@ -5,7 +5,7 @@ using System.Text;
 using TrainingManagement.WebApi.Domain.Ref;
 using System.Linq;
 
-namespace TrainingManagement.WebApi.Application.Ref.RefBlock.DTO
+namespace TrainingManagement.WebApi.Application.Ref.DTO
 {
     public class RefBlockDTO
     {

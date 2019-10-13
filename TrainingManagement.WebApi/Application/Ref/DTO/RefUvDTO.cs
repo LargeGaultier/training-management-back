@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using TrainingManagement.WebApi.Domain.Ref;
 
-namespace TrainingManagement.WebApi.Application.Ref.RefBlock.DTO
+namespace TrainingManagement.WebApi.Application.Ref.DTO
 
 {
     public class RefUvDTO

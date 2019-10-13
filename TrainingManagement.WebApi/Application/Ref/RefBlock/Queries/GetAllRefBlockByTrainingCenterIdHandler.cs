@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TrainingManagement.WebApi.Application.Ref.TrainingCenter.Models;
 using TrainingManagement.WebApi.Persistence;
-using TrainingManagement.WebApi.Application.Ref.RefBlock.DTO;
+using TrainingManagement.WebApi.Application.Ref.DTO;
 
 namespace TrainingManagement.WebApi.Application.Ref.TrainingCenter.Queries
 {

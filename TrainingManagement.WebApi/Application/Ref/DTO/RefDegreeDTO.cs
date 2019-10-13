@@ -4,12 +4,14 @@ using System.Linq.Expressions;
 using System.Text;
 using TrainingManagement.WebApi.Domain.Ref;
 
-namespace TrainingManagement.WebApi.Application.Ref.RefBlock.DTO
+namespace TrainingManagement.WebApi.Application.Ref.DTO
 {
     public class RefDegreeDTO
     {
         public long Id { get; set; }
         public string Name { get; set; }
+
+        public List<RefTrainingYearDTO> TrainingYearDTOs { get; set; }
 
         public static RefDegreeDTO ToDTO(Ref_Degree t)
         {

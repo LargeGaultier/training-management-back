@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TrainingManagement.WebApi.Application.Ref.TrainingCenter.Models;
 using TrainingManagement.WebApi.Persistence;
-using TrainingManagement.WebApi.Application.Ref.RefBlock.DTO;
+using TrainingManagement.WebApi.Application.Ref.DTO;
 
 namespace TrainingManagement.WebApi.Application.Ref.TrainingCenter.Queries
 {
@@ -23,6 +23,7 @@ namespace TrainingManagement.WebApi.Application.Ref.TrainingCenter.Queries
 
         public Task<List<RefBlockDTO>> Handle(GetAllRefBlockQuery request, CancellationToken cancellationToken)
         {
+
             return _context.Ref_Block
                 .Select(RefBlockDTO.Projection)
                 .ToListAsync(cancellationToken);

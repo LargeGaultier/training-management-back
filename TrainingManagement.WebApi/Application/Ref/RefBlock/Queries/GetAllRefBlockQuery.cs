@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using TrainingManagement.WebApi.Application.Ref.RefBlock.DTO;
+using TrainingManagement.WebApi.Application.Ref.DTO;
 
 namespace TrainingManagement.WebApi.Application.Ref.TrainingCenter.Queries
 {

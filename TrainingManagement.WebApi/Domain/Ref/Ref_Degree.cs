@@ -11,7 +11,6 @@ namespace TrainingManagement.WebApi.Domain.Ref
             Ref_TrainingYears = new HashSet<Ref_TrainingYear>();
         }
         public string Name{ get; set; }
-
         public long? Ref_TrainingCenterId { get; set; }
         public virtual Ref_TrainingCenter Ref_TrainingCenter { get; set; }
 
