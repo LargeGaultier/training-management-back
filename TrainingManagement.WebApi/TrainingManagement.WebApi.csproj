@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="eduximbackdev.PublishSettings" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="8.5.0" />
     <PackageReference Include="MediatR" Version="7.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
@@ -20,8 +24,14 @@
   <ItemGroup>
     <Folder Include="Application\Ref\RefBlock\Commands\" />
     <Folder Include="Application\Ref\RefBlock\DTO\" />
-    <Folder Include="Application\Ref\RefDegree\Models\" />
+    <Folder Include="Application\Ref\RefDegree\Commands\" />
     <Folder Include="Application\Ref\TrainingCenter\Command\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="eduximbackdev.PublishSettings">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
